@@ -1,0 +1,33 @@
+<h1>Tell us about your Cat</h1>
+<form action=' <%=cats_url %>' method="post">
+  <label for="name">Name: </label>
+
+  <input id="name" type="text" name="cat[name]" value="">
+  <br>
+  <br>
+
+  <label for="sex">Sex: </label>
+    <label for="female">F</label>
+    <input id="sex female" type="radio" name="cat[sex]" value="F" checked />
+    <label for="male">M</label>
+    <input id="sex male" type="radio" name="cat[sex]" value="M" />
+
+  <label for="color">Color: </label>
+  <select id="color" name="cat[color]">
+    <option selected disabled >-- select a color --</option>
+    <% CAT_COLORS.each do |c| %>
+      <option ><%= c %></option>
+    <% end %>
+  </select>
+    <br>
+    <br>
+  <label for="date">Birthday: </label>
+  <input type="date" name="cat[birth_date]" value="">
+    <br>
+    <br>
+  <label for="description">Description: </label>
+    <br>
+  <textarea id="description" name="cat[description]" rows="8" cols="34"></textarea>
+    <br>
+  <input type="submit" name="" value="All Done!">
+</form>

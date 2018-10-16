@@ -1,0 +1,35 @@
+<h1>Tell us about your Cat</h1>
+<form action="<%= cat_url(@cat) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="name">Name: </label>
+
+  <input id="name" type="text" name="cat[name]" value="<%= @cat.name %>">
+  <br>
+  <br>
+
+  <label for="sex">Sex: </label>
+    <label for="female">F</label>
+    <input id="sex female" type="radio" name="cat[sex]" value="<%= @cat.sex %>" checked />
+    <label for="male">M</label>
+    <input id="sex male" type="radio" name="cat[sex]" value="<%= @cat.sex %>" />
+
+  <label for="color">Color: </label>
+  <select id="color" name="cat[color]">
+    <option selected ><%= @cat.color %></option>
+    <% CAT_COLORS.each do |c| %>
+      <% next if c == @cat.color %>
+      <option ><%= c %></option>
+    <% end %>
+  </select>
+    <br>
+    <br>
+  <label for="date">Birthday: </label>
+  <input type="date" name="cat[birth_date]" value="<%= @cat.birth_date %>">
+    <br>
+    <br>
+  <label for="description">Description: </label>
+    <br>
+  <textarea id="description" name="cat[description]" rows="8" cols="34"><%= @cat.description %></textarea>
+    <br>
+  <input type="submit" name="" value="All Done!">
+</form>
